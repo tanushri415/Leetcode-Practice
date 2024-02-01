@@ -1,0 +1,30 @@
+
+// Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than previous value every subsequent time it is called (n, n+1, n+2, etc).
+
+var createCounter = function (n) {
+    return (function () {
+        return n++;
+    });
+};
+
+counter = createCounter(11);
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+function createCounter(initialValue) {
+    let counter = initialValue;
+
+    // Define the counter function
+    function counterFunction() {
+        const currentCounterValue = counter;
+        counter += 1;
+        return currentCounterValue;
+    }
+
+    return counterFunction;
+}
+result = createCounter(10);
+console.log(result());
+console.log(result());
+console.log(result());
